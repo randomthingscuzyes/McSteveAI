@@ -1,0 +1,244 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Carica il font Minecraft */
+  @font-face {
+    font-family: 'Minecraft';
+    src: url('Minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Applica il font Minecraft a tutto il testo */
+  body {
+    font-family: 'Minecraft', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  /* Schermata di caricamento */
+  .loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0f0f0f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  
+  .loading-screen.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .loader {
+    border: 5px solid #fff;
+    border-top: 5px solid #00ff88;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Header con video di sottofondo */
+  header {
+    position: relative;
+    text-align: center;
+    padding: 100px 20px;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    overflow: hidden;
+    transform: translateY(-20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.5s forwards;
+  }
+  
+  #background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: blur(0px); /* Blur del 10% */
+  }
+  
+  header h1 {
+    font-size: 4rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-shadow: 
+      -2px -2px 0 #000,  
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      2px 2px 0 #000; /* Outline nera */
+  }
+  
+  header p {
+    font-size: 1.5rem;
+    opacity: 0.8;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-shadow: 
+      -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000; /* Outline nera */
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Sezione Hero */
+  .hero {
+    padding: 50px 20px;
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease 1s forwards;
+  }
+  
+  .hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 
+      -2px -2px 0 #000,  
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      2px 2px 0 #000; /* Outline nera */
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow: 
+      -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000; /* Outline nera */
+  }
+  
+  .invite-button {
+    background: #00ff88;
+    color: #0f0f0f;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background 0.3s ease, transform 0.3s ease;
+    text-shadow: none; /* Rimuovi l'outline dal pulsante */
+  }
+  
+  .invite-button:hover {
+    background: #0077ff;
+    transform: scale(1.1);
+  }
+  
+  /* Sezione Funzionalità */
+  .features {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease 1.5s forwards;
+    color: #fff;
+    text-shadow: 
+      -2px -2px 0 #000,  
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      2px 2px 0 #000; /* Outline nera */
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background: #1f1f1f;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease 2s forwards;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 
+      -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000; /* Outline nera */
+  }
+  
+  .card p {
+    font-size: 1rem;
+    opacity: 0.8;
+    color: #fff;
+    text-shadow: 
+      -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000; /* Outline nera */
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #1f1f1f;
+    margin-top: 50px;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease 2.5s forwards;
+    color: #fff;
+    text-shadow: 
+      -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000; /* Outline nera */
+  }
